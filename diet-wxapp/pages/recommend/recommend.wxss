@@ -1,0 +1,82 @@
+/* pages/recommend/recommend.wxss */
+page {
+  width: 100%;
+}
+.body {
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+.topImg {
+  height: 10rem;
+  width: 100%;
+}
+.topImg image {
+  height: 10rem;
+  width: 100%;
+}
+.tabCls {
+  padding-bottom: 5px;
+  margin: 5px 0 5px 75px;
+  width: 50px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.tabActive {
+  border-bottom: 2px solid #1AAD19;
+  color: #1AAD19;
+}
+.recomdCont {
+  background-color: red;
+  width: 100%;
+}
+.addCls {
+  position: fixed;
+  height: 36px;
+  width: 36px;
+  right: 0;
+  top: 60%;
+  z-index: 9999999999999;
+  background-color: #1AAD19;
+  border-radius: 2px;
+}
+.usrList {
+  background-color: blue;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.usrItem {
+  /* background-color: #efefef;  */
+  float: left;
+  height: 4.5rem;
+  width: 45%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 3.33333%;
+  border-radius: 2px;
+  border: 1px solid #e0e0e0;
+}
+.usrItem:last-child {
+  margin-bottom: 70px;
+}
+.usrItemTxt {
+  margin-left: 5px;
+  max-width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  text-align: left;
+}
+.weui-cell:active {
+  background-color: #fff;
+}
+.recomdBtn {
+  background-color: #fff;
+  position: fixed;
+  width: 90%;
+  padding: 10px 5% 10px 5%;
+  z-index: 9999999999999;
+  bottom: 0;
+}

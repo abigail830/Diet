@@ -1,0 +1,80 @@
+<!--pages/recomdresult/recomdresult.wxml-->
+<view class='bodyBg'>
+  <view class="page">
+    <view class="page__bd" style='padding:5px 5px;'>
+      <view class="weui-panel">
+        <view class="weui-panel__hd">
+          <view style='padding-left:10px;border-left:4px solid #1AAD19;color:#3f3f3f;font-size:16px;font-weight:bold;'>
+            已选食材
+          </view>
+        </view>
+
+        <view class="weui-panel__bd">
+          <view class="weui-cells weui-cells_after-title" style='border:none;'>
+            <scroll-view scroll-y='true' scroll-y='true' style='width:95%;max-height:13.2rem;padding-left:15px;'>
+              <view wx:for="{{selectedFoods}}" wx:key='{{id}}' style='display: inline-block;border: 1px solid #d9d9d9;margin:0 5px 5px 0;height:3.5rem;width:47%;'>
+                <view class="weui-flex">
+                  <view style='text-align:center;width: 35%;margin:0.8rem 0.5rem 0 0.5rem;'>
+                    <image src='/images/icon/noPic.png' style='width:32px;height:32px;'></image>
+                  </view>
+                  <view style='width: 65%;margin-top: 0.5rem;' class="weui-flex__item">
+                    <view class='txtEllipsis' style='width:5.5rem;font-size:14px;'>{{item.name}}</view>
+                    <view style='width:5.5rem;font-size:14px;color:#999'>534g</view>
+                  </view>
+                </view>
+              </view>
+            </scroll-view>
+          </view>
+        </view>
+
+        <view class="weui-panel__hd">
+          <view style='padding-left:10px;border-left:4px solid #1AAD19;color:#3f3f3f;font-size:16px;font-weight:bold;'>
+            评价与建议总数
+          </view>
+        </view>
+        <view class="weui-panel__bd">
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd weui-cell__hd2">
+                <view style='width:100%;padding-right:5px;font-size:14px;'>无</view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-panel__hd">
+          <view style='padding-left:10px;border-left:4px solid #1AAD19;color:#3f3f3f;font-size:16px;font-weight:bold;'>
+            营养素摄入
+          </view>
+        </view>
+        <view class="weui-panel__bd">
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd weui-cell__hd2">
+                <view style='width:100%;padding-right:5px;font-size:14px;'>您摄入食物包含的各类营养素在推荐范围内</view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-panel__hd">
+          <view style='padding-left:10px;border-left:4px solid #1AAD19;color:#3f3f3f;font-size:16px;font-weight:bold;'>
+            营养成分来源
+          </view>
+        </view>
+        <view class="weui-panel__bd" style='height:14rem;overflow-y:auto;'>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="container">
+                  <canvas canvas-id="pieCanvas" class="canvas" style="height:300px;width:350px;" bindtouchstart="touchHandler"></canvas>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>

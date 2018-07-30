@@ -1,0 +1,62 @@
+<!--pages/dailyrecipe/dailyrecipe.wxml-->
+<view class='bodyBg'>
+  <view class="page">
+    <view class="page__bd" style='padding:5px 5px 35px 5px;'>
+      <view class="weui-panel">
+        <view class="weui-panel__bd">
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view style='text-align:center;font-size:18px;'>
+                每餐能量比例
+                <text style='color:#9f9f9f;font-size:18px;'>{{totalEnergies}}kcal</text>
+                </view>
+                <view class="container">
+                  <canvas canvas-id="pieCanvas" class="canvas" style="height:200px;width:345px;" bindtouchstart="touchHandler"></canvas>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-panel__bd">
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd" style='width:100%;text-align:center;padding:0 25%;'>
+                <view class='eatBg' data-value='0' bindtap='recipeDetail'>
+                  <view>早餐
+                    <text style='color: #9f9f9f;font-size:13px;'>({{memberRecipes[0].totalEnergy}}kcal)</text>
+                  </view>
+                  <view wx:for='{{memberRecipes[0].recipeInfos}}' wx:key='id' style='text-align:left;padding-left:15px;'>{{item.name}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-panel__bd">
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd weui-flex" style='width:100%;text-align:center;'>
+                <view class='weui-flex__item eatBg' style='margin-right: 5px;' data-value='1' bindtap='recipeDetail'>
+                  <view>午餐
+                    <text style='color: #9f9f9f;font-size:13px;'>({{memberRecipes[1].totalEnergy}}kcal)</text>
+                  </view>
+                  <view wx:for='{{memberRecipes[1].recipeInfos}}' wx:key='id' style='text-align:left;padding-left:15px;'>{{item.name}}</view>
+                </view>
+
+                <view class='weui-flex__item eatBg' style='margin-left: 5px;' data-value='2' bindtap='recipeDetail'>
+                  <view>晚餐
+                    <text style='color: #9f9f9f;font-size:13px;'>({{memberRecipes[2].totalEnergy}}kcal)</text>
+                  </view>
+                  <view wx:for='{{memberRecipes[2].recipeInfos}}' wx:key='id' style='text-align:left;padding-left:15px;'>{{item.name}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>

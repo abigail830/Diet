@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="admin">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Angular首页</title>
+    <link rel="stylesheet" href="../../css/bootstrap/css/bootstrap.css">
+
+    <style>
+        a {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid" ng-controller="index-ctrl">
+    <div class="row clearfix">
+        <div class="col column">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="#">首页</a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item" ng-if="auth.menuList" ui-sref-active="active" ui-sref="menuList.menu1" ui-sref-opts="{reload:true}">
+                            <a class="nav-link">菜单嵌套<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item" ng-if="auth.user" ui-sref-active="active" ui-sref="user" ui-sref-opts="{reload:true}">
+                            <a class="nav-link">表单</a>
+                        </li>
+                        <li class="nav-item" ng-if="auth.role" ui-sref-active="active" ui-sref="role" ui-sref-opts="{reload:true}">
+                            <a class="nav-link">表格</a>
+                        </li>
+                        <li class="nav-item" ng-if="auth.test" ui-sref-active="active" ui-sref="test" ui-sref-opts="{reload:true}">
+                            <a class="nav-link">文件</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="mt-2"></div>
+            <div ui-view></div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../../js/angular/lib/angular.min.js"></script>
+<script src="../../js/angular/lib/angular-ui-router.min.js"></script>
+<script src="../../js/angular/services.js"></script>
+<script src="../../js/angular/directive.js"></script>
+<script src="../../js/angular/filters.js"></script>
+<script src="../../js/angular/controllers-index.js"></script>
+<script src="../../js/angular/app.js"></script>
+
+<script src="../../js/lib/jquery-1.12.3.min.js"></script>
+<script src="../../js/lib/layer/layer.js"></script>
+<script src="../../js/utils.js"></script>
+</html>

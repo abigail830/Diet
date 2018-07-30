@@ -1,0 +1,46 @@
+<!--pages/dietitian/dietitian.wxml-->
+<view class='body'>
+  <view class="swiperBg">
+    <swiper class='swiper-img' indicator-active-color="#1AAD19" indicator-dots='true'autoplay='true'>
+      <swiper-item class='swiper-img'>
+        <view class='swiper-img'>
+          <image src='{{baseUrl}}/idx/food1.png'></image>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class='swiper-img'>
+          <image src='{{baseUrl}}/idx/food2.png'></image>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class='swiper-img'>
+          <image src='{{baseUrl}}/idx/food3.png'></image>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <view class='contentTabBg'>
+    <view class='contentTabOdd' bindtap='recommend'>
+      <view class='contentTab'>
+        <view >
+          <image style='height:32px;width:32px;' src='/images/icon/03.png'></image>
+        </view>
+        <view>
+          <text style='font-size:18px'>膳食推荐</text>
+        </view>
+      </view>
+    </view>
+    <view class='contentTabEven'>
+      <view class='contentTab'>
+        <view>
+          <image style='height:32px;width:32px;' src='/images/icon/04.png'></image>
+        </view>
+        <view>
+          <text style='font-size:18px'>膳食评价</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='line'></view>
+</view>

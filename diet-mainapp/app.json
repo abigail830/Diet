@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/nutritionsugg/nutritionsugg",
+    "pages/feedback/feedback",
+    "pages/feedbackedit/feedbackedit",
+    "pages/cofinfo/cofinfo",
+    "pages/nutritionknlg/nutritionknlg",
+    "pages/baseinfo/baseinfo",
+    "pages/dailyrecipe/dailyrecipe",
+    "pages/nutritionarticle/nutritionarticle",
+    "pages/recipedetail/recipedetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

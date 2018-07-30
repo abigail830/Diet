@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.diet.admin.dao.CookbookMapper">
+  <resultMap id="BaseResultMap" type="com.diet.admin.entity.Cookbook">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="technique" jdbcType="VARCHAR" property="technique" />
+    <result column="taste" jdbcType="VARCHAR" property="taste" />
+    <result column="prepTime" jdbcType="VARCHAR" property="prepTime" />
+    <result column="cookTime" jdbcType="VARCHAR" property="cookTime" />
+    <result column="cookProvs" jdbcType="VARCHAR" property="cookProvs" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+    <result column="numPeop" jdbcType="VARCHAR" property="numPeop" />
+    <result column="cookDiff" jdbcType="VARCHAR" property="cookDiff" />
+    <result column="mainIngr" jdbcType="VARCHAR" property="mainIngr" />
+    <result column="assiIngr" jdbcType="VARCHAR" property="assiIngr" />
+    <result column="imgUrl" jdbcType="VARCHAR" property="imgUrl" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,325 @@
+<!--pages/baseinfo/baseinfo.wxml-->
+<view class='body'>
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__hd">
+      <view class='panel_hd_txt'>基本信息</view>
+    </view>
+    <view class="weui-panel__bd">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">姓名</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" value='{{user.name}}' maxlength='15' bindinput='nameChg' placeholder="请输入姓名" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">性别</view>
+        </view>
+        <view>
+          <radio-group bindchange="usrSexChg" class='weui-flex'>
+            <label style='position: inherit' class="weui-cell weui-check__label weui-flex__item" wx:for="{{sexArr}}" wx:key="value">
+              <radio class="weui-check" checked='{{item.checked == user.sex}}' value="{{item.value}}" />
+              <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+                <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+              </view>
+              <view style='padding-left:15px;'>{{item.name}}</view>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">出生日期</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="date" value="{{user.birthDate}}" start="1900-01-01" end="{{maxDate}}" bindchange="birthDateChg">
+            <view style='border:none;text-align:center;' class="weui-input weui-select">{{user.birthDate || '请选择出生日期'}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">身高</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input txt-center" placeholder='请输入' value="{{user.height}}" maxlength='6' type='digit' bindinput='heightChg' />
+        </view>
+        <view class="weui-cell__ft no-arrow">
+          <text style='padding:0 5px;'>cm</text>
+        </view>
+        <view class="weui-cell__hd">
+          <view class="weui-label" style='padding-left:15px;'>
+            体重
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input txt-center" value="{{user.weight}}" placeholder='请输入' maxlength='6' type='digit' bindinput='weightChg' />
+        </view>
+        <view class="weui-cell__ft">
+          <text style='padding:0 0 0 10px;'>kg</text>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">职业</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker range="{{professionArr}}" bindchange="professionChg" value='{{user.profession}}'>
+            <view style='border:none;text-align:center;' class="weui-input weui-select txtEllipsis" style='max-width: 231px;border-right:none;'>{{professionArr[user.profession] || '请选择职业'}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">体力活动</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker range="{{workTypeArr}}" bindchange="workTypeChg" value='{{user.workType}}'>
+            <view style='border:none;text-align:center;' class="weui-input weui-select txtEllipsis" style='max-width: 231px;border-right:none;'>{{workTypeArr[user.workType] || "请选择"}}</view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">地区</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="region" bindchange="regionChg" value="{{user.region}}" custom-item="{{customItem}}">
+            <view class="picker">
+
+              <view class="weui-flex no-arrow" style='border-right:none;'>
+                <view class="weui-flex__item txtEllipsis" style='max-width:90px;'>
+                  {{user.region[0]}}
+                </view>
+                <view class="weui-flex__item txtEllipsis">
+                  {{user.region[1]}}
+                </view>
+                <view class="weui-flex__item txtEllipsis">
+                  {{user.region[2]}}
+                </view>
+              </view>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__hd">
+      <view class='panel_hd_txt'>健康指标</view>
+    </view>
+  
+    <view class="weui-panel__bd">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            血脂
+          </view>
+        </view>
+        <view>
+          <radio-group bindchange="bloodFatChg" class='weui-flex'>
+            <label class="weui-cell weui-check__label weui-flex__item radio-label">
+              <radio class="weui-check" value="3" />
+              <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{user.bloodFat != 3}}"></icon>
+                <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{user.bloodFat == 3}}"></icon>
+              </view>
+              <view style='padding-left:10px;'>正常</view>
+            </label>
+
+            <label class="weui-cell weui-check__label weui-flex__item radio-label">
+              <radio class="weui-check" value="1" />
+              <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{user.bloodFat != 1}}"></icon>
+                <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{user.bloodFat == 1}}"></icon>
+              </view>
+              <view style='padding-left:10px;'>高血脂</view>
+            </label>
+
+            <label class="weui-cell weui-check__label weui-flex__item radio-label">
+              <radio class="weui-check" value="4" />
+              <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{user.bloodFat != 4}}"></icon>
+                <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{user.bloodFat == 4}}"></icon>
+              </view>
+              <view style='padding-left:10px;'>低血脂</view>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            血糖
+          </view>
+        </view>
+        <view>
+          <radio-group bindchange="bloodSugarChg" class='weui-flex'>
+            <label class="weui-cell weui-check__label weui-flex__item radio-label">
+              <radio class="weui-check" value="3" />
+              <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{user.bloodSugar != 3}}"></icon>
+                <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{user.bloodSugar == 3}}"></icon>
+              </view>
+              <view style='padding-left:10px;'>正常</view>
+            </label>
+
+            <label class="weui-cell weui-check__label weui-flex__item radio-label">
+              <radio class="weui-check" value="1" />
+              <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{user.bloodSugar != 1}}"></icon>
+                <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{user.bloodSugar == 1}}"></icon>
+              </view>
+              <view style='padding-left:10px;'>高血糖</view>
+            </label>
+
+            <label class="weui-cell weui-check__label weui-flex__item radio-label">
+              <radio class="weui-check" value="4" />
+              <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{user.bloodSugar != 4}}"></icon>
+                <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{user.bloodSugar == 4}}"></icon>
+              </view>
+              <view style='padding-left:10px;'>低血糖</view>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            血压
+          </view>
+        </view>
+        <view>
+          <radio-group bindchange="bloodPressChg" class='weui-flex'>
+            <label class="weui-cell weui-check__label weui-flex__item radio-label">
+              <radio class="weui-check" value="3" />
+              <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{user.bloodPress != 3}}"></icon>
+                <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{user.bloodPress == 3}}"></icon>
+              </view>
+              <view style='padding-left:10px;'>正常</view>
+            </label>
+
+            <label class="weui-cell weui-check__label weui-flex__item radio-label">
+              <radio class="weui-check" value="1" />
+              <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{user.bloodPress != 1}}"></icon>
+                <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{user.bloodPress == 1}}"></icon>
+              </view>
+              <view style='padding-left:10px;'>高血压</view>
+            </label>
+
+            <label class="weui-cell weui-check__label weui-flex__item radio-label">
+              <radio class="weui-check" value="4" />
+              <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{user.bloodPress != 4}}"></icon>
+                <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{user.bloodPress == 4}}"></icon>
+              </view>
+              <view style='padding-left:10px;'>低血压</view>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            尿酸
+          </view>
+        </view>
+        <view>
+          <radio-group bindchange="uricAcidChg" class='weui-flex'>
+            <label class="weui-cell weui-check__label weui-flex__item radio-label">
+              <radio class="weui-check" value="3" />
+              <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{user.uricAcid != 3}}"></icon>
+                <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{user.uricAcid == 3}}"></icon>
+              </view>
+              <view style='padding-left:10px;'>正常</view>
+            </label>
+
+            <label class="weui-cell weui-check__label weui-flex__item radio-label">
+              <radio class="weui-check" value="1" />
+              <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{user.uricAcid != 1}}"></icon>
+                <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{user.uricAcid == 1}}"></icon>
+              </view>
+              <view style='padding-left:10px;'>高尿酸</view>
+            </label>
+
+            <label class="weui-cell weui-check__label weui-flex__item radio-label">
+              <radio class="weui-check" value="4" />
+              <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{user.uricAcid != 4}}"></icon>
+                <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{user.uricAcid == 4}}"></icon>
+              </view>
+              <view style='padding-left:10px;'>低尿酸</view>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            肾脏
+          </view>
+        </view>
+        <view>
+          <radio-group bindchange="kidneyChg" class='weui-flex'>
+            <label class="weui-cell weui-check__label weui-flex__item radio-label">
+              <radio class="weui-check" value="3" />
+              <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{user.kidney != 3}}"></icon>
+                <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{user.kidney == 3}}"></icon>
+              </view>
+              <view style='padding-left:10px;'>正常</view>
+            </label>
+
+            <label class="weui-cell weui-check__label weui-flex__item radio-label">
+              <radio class="weui-check" value="1" />
+              <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{user.kidney != 1}}"></icon>
+                <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{user.kidney == 1}}"></icon>
+              </view>
+              <view style='padding-left:10px;'>尿毒症</view>
+            </label>
+
+            <label class="weui-cell weui-check__label weui-flex__item radio-label">
+              <radio class="weui-check" value="4" />
+              <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{user.kidney != 4}}"></icon>
+                <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{user.kidney == 4}}"></icon>
+              </view>
+              <view style='padding-left:10px;'>其它</view>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+
+
+    </view>
+  </view>
+
+
+  <view class="weui-flex" style='padding: 10px 15px;'>
+    <view class="weui-flex__item" style='padding: 0 5px;'>
+      <button style='width:100%;' class="weui-btn" type="default" bindtap="cancleBtn">取消</button>
+    </view>
+    <view class="weui-flex__item" style='padding: 0 5px;'>
+      <button style='width:100%;' class="weui-btn" type="primary" bindtap="addUser">保存</button>
+    </view>
+    <view class="weui-flex__item" style='padding: 0 5px;'>
+      <button style='width:100%;' class="weui-btn" type="primary" bindtap="goRecomd">营养推荐</button>
+    </view>
+
+  </view>
+</view>

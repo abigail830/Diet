@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.diet.admin.dao.CofInfoMapper">
+  <resultMap id="BaseResultMap" type="com.diet.admin.entity.CofInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="region" jdbcType="VARCHAR" property="region" />
+    <result column="canEatePart" jdbcType="REAL" property="canEatePart" />
+    <result column="energy" jdbcType="REAL" property="energy" />
+    <result column="water" jdbcType="REAL" property="water" />
+    <result column="protein" jdbcType="REAL" property="protein" />
+    <result column="fat" jdbcType="REAL" property="fat" />
+    <result column="fibre" jdbcType="REAL" property="fibre" />
+    <result column="carbohydrate" jdbcType="REAL" property="carbohydrate" />
+    <result column="retinolEq" jdbcType="REAL" property="retinolEq" />
+    <result column="vb1" jdbcType="REAL" property="vb1" />
+    <result column="vb2" jdbcType="REAL" property="vb2" />
+    <result column="vpp" jdbcType="REAL" property="vpp" />
+    <result column="ve" jdbcType="REAL" property="ve" />
+    <result column="na" jdbcType="REAL" property="na" />
+    <result column="ca" jdbcType="REAL" property="ca" />
+    <result column="fe" jdbcType="REAL" property="fe" />
+    <result column="vc" jdbcType="REAL" property="vc" />
+    <result column="cholesterol" jdbcType="REAL" property="cholesterol" />
+    <result column="quantity" jdbcType="REAL" property="quantity" />
+    <result column="isBreakFast" jdbcType="INTEGER" property="isBreakFast" />
+    <result column="isLunch" jdbcType="INTEGER" property="isLunch" />
+    <result column="isDinner" jdbcType="INTEGER" property="isDinner" />
+    <result column="bloodFat" jdbcType="INTEGER" property="bloodFat" />
+    <result column="bloodSugar" jdbcType="INTEGER" property="bloodSugar" />
+    <result column="bloodPress" jdbcType="INTEGER" property="bloodPress" />
+    <result column="uricAcid" jdbcType="INTEGER" property="uricAcid" />
+    <result column="kidney" jdbcType="INTEGER" property="kidney" />
+    <result column="imgPath" jdbcType="VARCHAR" property="imgPath" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+</mapper>

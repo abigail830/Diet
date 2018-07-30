@@ -1,0 +1,28 @@
+<!--pages/nutritionknlg/nutritionknlg.wxml-->
+<view class='body'>
+  <view class="weui-panel">
+    <view class="weui-panel__bd" bindtap='articledetail'>
+      <view class="weui-media-box weui-media-box_text">
+        <view class="weui-media-box__title weui-media-box__title_in-text">睡眠呼吸暂停综合征的营养处方</view>
+        <view class="weui-media-box__desc">睡眠呼吸暂停综合征是威胁人类健康及生命的隐形杀手，近30年来才逐渐为人们所关注。患有此疾病者，会在睡眠过程中反复出现呼吸暂停现象，从而造成患者由于氧气供应不足进而损害多种器官的疾病。人体代谢过程平均每分钟需氧量为150～250毫升。各器官组织一旦不能获得足够的氧供应，其功能必将受到不同程度的损害，直至细胞死亡</view>
+        <view class="weui-media-box__info">
+          <view class="weui-media-box__info__meta">张某某</view>
+          <view class="weui-media-box__info__meta">2018-07-06</view>
+          <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">营养处方</view>
+        </view>
+      </view>
+    </view>
+    
+    <view class="weui-panel__bd" bindtap='articledetail'>
+      <view class="weui-media-box weui-media-box_text">
+        <view class="weui-media-box__title weui-media-box__title_in-text">乳糖不耐受的营养处方</view>
+        <view class="weui-media-box__desc">乳糖不耐受症是指人体由于缺乏乳糖酶从而不能分解并代谢乳糖（一种糖类，常见于牛奶及其他奶制品中）。在这种情况下，乳制品中的乳糖未被分解便直接进入了结肠，然后被结肠内的细菌所分解并产生大量气体而导致腹部发生不适。</view>
+        <view class="weui-media-box__info">
+          <view class="weui-media-box__info__meta">张某某</view>
+          <view class="weui-media-box__info__meta">2018-07-03</view>
+          <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">营养处方</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/recomdsum/recomdsum",
+    "pages/recomdprocs/recomdprocs",
+    "pages/dietitian/dietitian",
+    "pages/recipedetail/recipedetail",
+    "pages/dailyrecipe/dailyrecipe",
+    "pages/recommend/recommend",
+    "pages/recomdresult/recomdresult",
+    "pages/member/member",
+    "pages/foodlist/foodlist",
+    "pages/bindinfo/bindinfo",
+    "pages/personal/personal",
+    "pages/dietlog/dietlog",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#666",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#333",
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#1AAD19",
+    "list": [
+      {
+        "pagePath": "pages/dietitian/dietitian",
+        "text": "饮食管理",
+        "iconPath": "/images/icon/dietitian.png",
+        "selectedIconPath": "/images/icon/dietitian-active.png"
+      },
+      {
+        "pagePath": "pages/dietlog/dietlog",
+        "text": "饮食日志",
+        "iconPath": "/images/icon/dietlog.png",
+        "selectedIconPath": "/images/icon/dietlog-active.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "个人中心",
+        "iconPath": "/images/icon/personal.png",
+        "selectedIconPath": "/images/icon/personal-active.png"
+      }
+    ]
+  }
+}

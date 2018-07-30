@@ -1,0 +1,176 @@
+<!--pages/cofinfo/cofinfo.wxml-->
+<view class='bodyBg'>
+  <view>
+    <view class="page">
+      <view class="page__bd">
+          <view class="weui-panel__bd">
+            <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell">
+                <view class="weui-cell__bd">
+                  <image style='width:100%;height:160px;' src='{{baseUrl}}/idx/food1.png'></image>
+                </view>
+              </view>
+            </view>
+          </view>
+
+            
+
+          <view class="weui-panel__hd">
+            <view style='padding-left:10px;border-left:4px solid #1AAD19;color:#3f3f3f;font-size:16px;font-weight:bold;'>
+              食用建议
+            </view>
+          </view>
+          <view class="weui-panel__bd">
+            <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input weui-flex">
+                <view class="weui-flex__item weui-cell__hd">
+                  <view class="weui-label we-label">高血脂</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text>{{healthGrade[cofInfo.bloodFat]}}</text>
+                </view>
+
+                <view class="weui-flex__item weui-cell__hd">
+                  <view class="weui-label we-label">高血糖</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text>{{healthGrade[cofInfo.bloodSugar]}}</text>
+                </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input weui-flex">
+                <view class="weui-flex__item weui-cell__hd">
+                  <view class="weui-label we-label">高血压</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text>{{healthGrade[cofInfo.bloodPress]}}</text>
+                </view>
+
+                <view class="weui-flex__item weui-cell__hd">
+                  <view class="weui-label we-label">高尿酸</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text>{{healthGrade[cofInfo.uricAcid]}}</text>
+                </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input weui-flex">
+                <view class="weui-flex__item weui-cell__hd">
+                  <view class="weui-label we-label">尿毒症</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text>{{healthGrade[cofInfo.kidney]}}</text>
+                </view>
+
+                <view class="weui-flex__item weui-cell__hd">
+                  <view class="weui-label we-label"></view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text></text>
+                </view>
+              </view>
+            </view>
+          </view>
+
+          <view class="weui-panel__hd">
+            <view style='padding-left:10px;border-left:4px solid #1AAD19;color:#3f3f3f;font-size:16px;font-weight:bold;'>
+              成分明细(每100g)
+            </view>
+          </view>
+          <view class="weui-panel__bd">
+            <view class="weui-cells weui-cells_after-title cofBg">
+              <view class="weui-cell weui-cell_input weui-flex">
+                <view class="weui-flex__item weui-cell__hd">
+                  <view style='font-weight:bold;' class="weui-label">能量</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{cofInfo.energy || 0}}</text>
+                  <text style='color:#999;padding-right: 5px;'>kcal</text>
+                </view>
+
+                <view class="weui-flex__item weui-cell__hd">
+                  <view style='font-weight:bold;' class="weui-label">水分</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{cofInfo.water || 0}}</text>
+                  <text style='color:#999;padding-right: 5px;'>g</text>
+                </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input weui-flex">
+                <view class="weui-flex__item weui-cell__hd">
+                  <view style='font-weight:bold;' class="weui-label">蛋白质</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{cofInfo.protein || 0}}</text>
+                  <text style='color:#999;padding-right: 5px;'>g</text>
+                </view>
+
+                <view class="weui-flex__item weui-cell__hd">
+                  <view style='font-weight:bold;' class="weui-label">脂肪</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{cofInfo.fat || 0}}</text>
+                  <text style='color:#999;padding-right: 5px;'>g</text>
+                </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input weui-flex">
+                <view class="weui-flex__item weui-cell__hd">
+                  <view style='font-weight:bold;' class="weui-label">维生素C</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{cofInfo.vc || 0}}</text>
+                  <text style='color:#999;padding-right: 5px;'>mg</text>
+                </view>
+
+                <view class="weui-flex__item weui-cell__hd">
+                  <view style='font-weight:bold;' class="weui-label">维生素E</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{cofInfo.ve || 0}}</text>
+                  <text style='color:#999;padding-right: 5px;'>mg</text>
+                </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input weui-flex">
+                <view class="weui-flex__item weui-cell__hd">
+                  <view style='font-weight:bold;' class="weui-label">钠</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{cofInfo.na || 0}}</text>
+                  <text style='color:#999;padding-right: 5px;'>mg</text>
+                </view>
+                <view class="weui-flex__item weui-cell__hd">
+                  <view style='font-weight:bold;' class="weui-label">钙</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{cofInfo.ca || 0}}</text>
+                  <text style='color:#999;padding-right: 5px;'>mg</text>
+                </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input weui-flex">
+                <view class="weui-flex__item weui-cell__hd">
+                  <view style='font-weight:bold;' class="weui-label">铁</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{cofInfo.fe || 0}}</text>
+                  <text style='color:#999;padding-right: 5px;'>mg</text>
+                </view>
+
+                <view class="weui-flex__item weui-cell__hd">
+                  <view style='font-weight:bold;' class="weui-label"></view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'></text>
+                </view>
+              </view>
+
+            </view>
+          </view>
+
+      </view>
+    </view>
+  </view>
+</view>

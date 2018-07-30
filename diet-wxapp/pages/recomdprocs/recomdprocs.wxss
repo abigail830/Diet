@@ -1,0 +1,62 @@
+/* pages/recomdprocs/recomdprocs.wxss */
+page {
+  height: 100%;
+  width: 100%;
+  background-color: #f0f0f0;
+}
+.page{
+  margin: 5px 0;
+}
+.bodyBg{
+  width: 94%;
+  padding:0 3%;
+}
+.weui-panel{
+  position: static;
+}
+.weui-panel__hd:after {
+  border:none;
+}
+.weui-cells{
+  font-size:14px;
+  position: static;
+}
+.weui-cell{
+  position: static;
+}
+label.weui-cell{
+  padding:0;
+}
+.weui-cell:active {
+  background-color: #fff;
+}
+.weui-input{
+  border-bottom: 1px solid #d9d9d9;
+}
+.weui-select{
+  text-align:left;
+  border-right: none;
+  padding:0;
+  border-bottom: 1px solid #d9d9d9;
+}
+.weui-select:before{
+   -webkit-transform:matrix(.71,.71,.71,-.71,0,0); 
+  transform:matrix(.71,.71,.71,-.71,0,0);
+  right:5px;
+}
+.weui-cell__hd {
+  /* background-color: red; */
+  max-width: 20%;
+}
+ .weui-cell__bd{
+  padding:5px 0;
+}
+.weui-cell-autoH.weui-cell__bd{
+  padding:0;
+}
+.txtEllipsis{
+  max-width:97px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

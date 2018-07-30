@@ -1,0 +1,66 @@
+/* pages/feedbackedit/feedbackedit.wxss */
+page {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+}
+.page{
+  margin: 0;
+}
+.bodyBg{
+  width: 100%;
+  padding:0;
+}
+.weui-cells{
+  font-size:16px;
+  position: static;
+}
+label.weui-cell{
+  padding:0;
+}
+.weui-cell:active {
+  background-color: #fff;
+}
+.weui-cell{
+  padding-top:5px;
+  padding-bottom:5px;
+}
+.weui-panel__hd:after {
+   border:none; 
+}
+.weui-panel__bd {
+  /* padding: 5px 0; */
+  border-bottom: 1rpx solid #d9d9d9;
+}
+.weui-cell__bd{
+  padding:5px 0;
+}
+.weui-select:before{
+   -webkit-transform:matrix(.71,.71,.71,-.71,0,0); 
+  transform:matrix(.71,.71,.71,-.71,0,0);
+}
+.weui-input{
+  border-bottom: 1rpx solid #d9d9d9;
+  text-align: center;
+  height: 35px;
+  line-height: 35px;
+  min-height: 0;
+}
+.txtEllipsis{
+  max-width:97px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mealTime{
+  padding: 2px 5px;
+  margin: 0 3px;
+  background-color:#a9a9a9;
+  color:#fff;
+  font-size:16px;
+  font-weight:bold;
+  border-radius: 3px;
+}
+.mealTimeActive{
+  background-color:#1AAD19;
+}

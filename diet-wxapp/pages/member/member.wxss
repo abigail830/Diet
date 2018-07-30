@@ -1,0 +1,29 @@
+/* pages/member/member.wxss */
+.weui-cell {
+  /* margin: 1px 0; */
+  padding-top:13px;
+  padding-bottom: 12px;
+}
+.weui-cell:active {
+  background-color: #fff;
+}
+.weui-cell__hd {
+  /* background-color: red; */
+  max-width: 20%;
+}
+.weui-select:before{
+   -webkit-transform:matrix(.71,.71,.71,-.71,0,0); 
+  transform:matrix(.71,.71,.71,-.71,0,0);
+}
+.no-arrow {
+  position: relative;
+  height: 2.58823529em;
+  min-height: 2.58823529em;
+  line-height: 2.58823529em;
+  border-right: 1rpx solid #d9d9d9;
+}
+.txtEllipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

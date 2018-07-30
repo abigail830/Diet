@@ -1,0 +1,12 @@
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a class="nav-link" ng-if="auth.menuList.menu1" ui-sref-active="active" ui-sref="menuList.menu1" ui-sref-opts="{reload:true}">列表</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" ng-if="auth.menuList.menu2" ui-sref-active="active" ui-sref="menuList.menu2({id:1})">表单</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" ng-if="auth.menuList.menu3" ui-sref-active="active" ui-sref="menuList.menu3" ui-sref-opts="{reload:true}">菜单</a>
+    </li>
+</ul>
+<div ui-view></div>

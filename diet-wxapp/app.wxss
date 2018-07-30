@@ -1,0 +1,7 @@
+@import 'weui-all.wxss';
+.p-l-15{
+  padding-left: 15px;
+}
+.p-r-15{
+  padding-right: 15px;
+}

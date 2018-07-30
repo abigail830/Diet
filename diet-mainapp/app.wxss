@@ -1,0 +1,5 @@
+/**app.wxss**/
+@import 'weui-all.wxss';
+.txt-center{
+  text-align: center;
+}

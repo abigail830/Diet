@@ -1,0 +1,119 @@
+<!--pages/feedbackedit/feedbackedit.wxml-->
+<view class='bodyBg'>
+  <view>
+    <view class="page">
+      <view class="page__bd">
+        <view class="weui-panel weui-panel_access">
+          <view class="weui-panel__bd weui-flex">
+            <view class="weui-cells weui-cells_after-title" style='width:100%;'>
+               <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                  <view style='width:75px;' class="weui-label">膳食描述</view>
+                </view>
+                <view class="weui-cell__bd">
+                  <input value='{{feedback.mealDesc}}' class='weui-cell__input' disabled='{{isEdit == 0}}' bindinput='mealDescChg' maxlength='20' placeholder='请输入膳食描述'></input>
+                </view>
+              </view> 
+
+              <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                  <view style='width:75px;' class="weui-label">膳食日期</view>
+                </view>
+                <view class="weui-cell__bd">
+                  <picker disabled='{{isEdit == 0}}' mode="date" start="1900-01-01" end="{{maxDate}}" value="{{feedback.mealDate}}" bindchange="mealDateChg">
+                    <view style='border:none;text-align:center;' class="weui-input weui-select">{{feedback.mealDate || '请选择膳食日期'}}</view>
+                  </picker>
+                </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                  <view style='width:75px;' class="weui-label">就餐时间</view>
+                </view>
+                <view class="weui-cell__bd weui-flex" style='align-items:center;justify-content:center;'>
+                  <view wx:if='{{isEdit == 1}}' bindtap='removeMealTime'>
+                    <icon size='25' type="cancel"></icon>
+                  </view>
+                  <scroll-view scroll-x class='weui-flex__item' style='text-align:center;line-height:30px;height:30px;max-width:210px;'>
+                    <text data-value='{{idx}}' bindtap='chgCurrMealTime' wx:for='{{feedback.mealList}}' wx:key='mealTime' wx:for-index="idx" class='mealTime {{currentMealTime == idx ? "mealTimeActive" : ""}}'>{{item.mealTime}}</text>
+                  </scroll-view>
+                  <view bindtap='isCanAddTime' wx:if='{{isEdit == 1}}' style='width:25px;height:25px;'>
+                    <picker disabled='{{feedback.mealList[currentMealTime].cofIds.length < 1}}' mode="time" bindchange="addMealTime">
+                      <image src='/images/icon/plus_circle.png' style='width:25px;height:25px;'></image>
+                    </picker>
+                  </view>
+                </view>
+              </view>
+            </view>
+
+          </view>
+          <view class="weui-panel__bd" wx:if='{{feedback.mealList[currentMealTime].cofInfos.length > 0}}'>
+            <scroll-view scroll-y style="max-height: 26rem;" class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input" wx:for='{{feedback.mealList[currentMealTime].cofInfos}}' wx:for-index="idx" wx:key='id'>
+                <view class="weui-cell__bd">
+                  <view class="weui-flex" style='align-items:center;justify-content:center;'>
+                    <view style='width: 100px;'>
+                      <image src='/images/icon/noPic.png' style='width:48px;height:48px;'></image>
+                    </view>
+                    <view class="weui-flex__item">
+                      <view>{{item.name}}</view>
+                    </view>
+                    <view style='width: 90px;'>
+                      <input type='digit' class="weui-input" maxlength='15' disabled='{{isEdit == 0}}' data-value='{{idx}}' bindinput='amountChg' value='{{feedback.mealList[currentMealTime].cofVals[idx] || 0}}' placeholder="请输入" />
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </scroll-view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+    <view style='position:fixed;bottom:0;width:100%;background-color: #fff;z-index:99;' wx:if='{{feedback.mealList.length > 0 && isEdit == 1}}'>
+      <view style='text-align:center;'>
+        <!-- <image bindtap='showAddCofPage' src='../../images/icon/plus_circle.png' style='width:48px;height:48px;'></image> -->
+        <view class="weui-flex" style='padding: 10px 15px;'>
+    <view class="weui-flex__item" style='padding: 0 5px;'>
+      <button style='width:100%;' class="weui-btn" type="primary" bindtap='showAddCofPage'>添加食材</button>
+    </view>
+    <view class="weui-flex__item" style='padding: 0 5px;'>
+      <button style='width:100%;' class="weui-btn" type="primary" bindtap="saveFeedBack">保存</button>
+    </view>
+
+  </view>
+      </view>
+    </view>
+
+
+
+
+  </view>
+</view>
+
+<view wx:if='{{showCofQuery}}' style='height:100%;width:100%;position:absolute;background-color:#efeff4;top:0;left:0;z-index:999;'>
+  <view class="weui-search-bar" style='border:none;'>
+    <view class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="18" style='top:10px;'></icon>
+        <input type="text" class="weui-search-bar__input" value='{{inputVal}}' placeholder="食材查询查询" bindinput="searchCofs" style='height:35px;line-height:35px;font-size:17px;' placeholder-style='padding-top:1px;' />
+        <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+          <icon type="clear" size="18" style='margin-top:1px;'></icon>
+        </view>
+      </view>
+    </view>
+    <view class="weui-search-bar__cancel-btn" style='line-height:35px;' bindtap="hideCofQuery">关闭</view>
+  </view>
+  <scroll-view scroll-y class="weui-cells searchbar-result" style='position:fixed;margin-top:-1px;max-height: 29rem;min-height: 2rem;width:95%;margin:0 10px;z-index:9999;' wx:if="{{inputVal.length > 0}}">
+    <view wx:for='{{cofInfos}}' wx:key='id' wx:for-index="idx" data-value="{{item}}" class="weui-cell" wx:if='{{cofInfos.length > 0}}' hover-class="weui-cell_active" bindtap='addCof'>
+      <view class="weui-cell__bd">
+        <view>{{item.name}}</view>
+      </view>
+    </view>
+    <view class="weui-cell" wx:if='{{cofInfos.length <= 0}}'>
+      <view class="weui-cell__bd">
+        <view style='text-align:center;color:#999;'>无法找到食材</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

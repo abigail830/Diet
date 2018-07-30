@@ -1,0 +1,30 @@
+<!--pages/nutritionarticle/nutritionarticle.wxml-->
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title" style='text-align:center;'>乳糖不耐受的营养处方</view>
+        <view class="page__desc" style='text-indent: 30px;'>
+          <p>乳糖不耐受症是指人体由于缺乏乳糖酶从而不能分解并代谢乳糖（一种糖类，常见于牛奶及其他奶制品中）。在这种情况下，乳制品中的乳糖未被分解便直接进入了结肠，然后被结肠内的细菌所分解并产生大量气体而导致腹部发生不适。
+          </p>
+        </view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-article">
+            <view class="weui-article__h1">营养处方</view>
+            <view class="weui-article__section">
+                <view class="weui-article__title">避免乳糖不耐受的发生</view>
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">1、避免食用含有乳糖的食物，用替代食物保持营养均衡</view>
+                    <view class="weui-article__p">
+                        一般乳糖只存在于奶及奶制品中，但并不是所有的奶及奶制品都含有较多的乳糖，奶制品由于加工方法不同，所含的乳糖也有多有少。
+                    </view>
+                </view>
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">2、使用替代酶</view>
+                    <view class="weui-article__p">
+                        乳糖酶的出现可以使人们在享受奶和奶制品带给我们的美味和营养的同时不出现乳糖带来的副作用。但这需要在食用奶和奶制品之前口服一片乳糖酸片剂。如过早或过晚服用，都不会发挥良好的效果。
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

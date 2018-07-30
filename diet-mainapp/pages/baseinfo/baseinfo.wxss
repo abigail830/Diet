@@ -1,0 +1,55 @@
+/* pages/baseinfo/baseinfo.wxss */
+.body{
+  padding: 10px 0;
+  background-color:#F8F8F8;
+  font-size: 16px;
+}
+.panel_hd_txt{
+   padding-left:10px; 
+  border-left:4px solid #1AAD19;
+  color:#3f3f3f;
+  font-size:18px;
+  font-weight:bold;
+}
+.radio-label{
+  position: inherit;
+  padding-left:0;
+  padding-right:5px;
+}
+.weui-cells{
+  margin-top:-1px;
+}
+.weui-cell {
+   margin-top: -1px;
+}
+.weui-cell:active {
+  background-color: #fff;
+}
+.weui-cell__hd {
+  max-width: 20%;
+}
+.weui-cell__bd {
+  height: 45px;
+  line-height: 45px;
+}
+.weui-select{
+  height: 45px;
+  min-height: 45px;
+  line-height: 45px;
+}
+.weui-select:before{
+   -webkit-transform:matrix(.71,.71,.71,-.71,0,0); 
+  transform:matrix(.71,.71,.71,-.71,0,0);
+}
+.no-arrow {
+  position: relative;
+  height: 45px;
+  min-height: 45px;
+  line-height: 45px;
+  border-right: 1rpx solid #d9d9d9;
+}
+.txtEllipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

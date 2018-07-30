@@ -1,0 +1,59 @@
+/* pages/dietitian/dietitian.wxss */
+page{
+  width: 100%;
+}
+.body{
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+.swiperBg{
+  height: 10rem;
+  width: 100%;
+}
+.swiper-img{
+  height: 100%;
+  width: 100%;
+}
+.swiper-img image{
+  height: 100%;
+  width: 100%;
+}
+.contentTabBg{
+  height: 6rem;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+ .contentTabOdd{
+   /* background-color: red;  */
+  height: 5rem;
+  width: 49.5%;
+  margin: 2% 0;
+  float: left;
+  border-right: 0.06rem solid #eee;
+  text-align: center;
+  vertical-align: middle;
+}
+.contentTabEven{
+  /* background-color: blue; */
+  height: 5rem;
+  width: 49.5%;
+  margin: 2% 0;
+  float: left;
+  text-align: center;
+  vertical-align: middle;
+} 
+.contentTab{
+  /* background-color: blue; */
+  height: 3rem;
+  width: 5rem;
+  margin: 1rem 25%;
+}
+.line{
+  height: 0.06rem;
+  width: 95%;
+  margin: 0 2.5%; 
+  border-bottom: 0.06rem solid #eee;
+}

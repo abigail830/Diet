@@ -1,0 +1,22 @@
+<!--pages/bindinfo/bindinfo.wxml-->
+<view class='body' wx:if='{{isInitComplete}}'>
+  <view class='contentBg'>
+    <view>
+      <image style='height:64px;width:64px;' src='/images/icon/bind.png'></image>
+    </view>
+    <view style='margin:0.2rem 0;'>
+      <input type='number' maxlength='11' class='inputCls' bindinput='phoneInput' placeholder-class='placeholderCls' placeholder='请输入手机号'></input>
+    </view>
+    <view style="display:flex;flex-direction:row;margin:0.2rem 0;">
+      <view style='width:53%;' >
+        <input type='number' maxlength='6' class='inputCls' bindinput='codeInput'placeholder-class='placeholderCls' placeholder='请输入验证码'></input>
+      </view>
+      <view style='width:45%;margin-left:2%;'>
+        <button style='font-size: 14px;line-height:46px;' class="weui-btn" type="primary" disabled='{{smsBtnDisabled}}' bindtap="sendSms">{{smsBtnTxt}}</button>
+      </view>
+    </view>
+    <view style='width:100%;margin:0.2rem 0;'>
+      <button style='width:100%;' open-type='getUserInfo' class="weui-btn" type="primary" bindgetuserinfo="bindUser">绑定</button>
+    </view>
+  </view>
+</view>

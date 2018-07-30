@@ -1,0 +1,182 @@
+<!--pages/recomdsum/recomdsum.wxml-->
+<view class='bodyBg'>
+  <!-- <view style='color:#3f3f3f;font-size:15px;font-weight:bold;'>根据您的监控档案预置了所需信息，请您修改并确认相关信息。</view> -->
+  <view>
+    <view class="page">
+      <view class="page__bd">
+        <view class="weui-panel weui-panel_access">
+          <view class="weui-panel__hd">
+            <view style='padding-left:10px;border-left:4px solid #1AAD19;color:#3f3f3f;font-size:16px;font-weight:bold;'>
+              健康评估
+            </view>
+          </view>
+          <view class="weui-panel__bd">
+            <view class="weui-cells weui-cells_after-title" wx:for='{{userItems}}' wx:key='{{id}}'>
+              <view class="weui-cell">
+                <view class="weui-cell__hd weui-cell__hd2">
+                  <view style='width:135px;padding-right:5px;font-weight:bold;'>{{item.name}}</view>
+                </view>
+                <view class="weui-cell__bd">
+                  <view class="weui-badge">正常</view>
+                </view>
+              </view>
+            </view>
+          </view>
+
+          <view class="weui-panel__hd" style='border-bottom: 1rpx solid #d9d9d9;'>
+            <view class="weui-flex" style='margin-bottom:10px;'>
+              <view class="weui-flex__item">
+                <view style='padding-left: 10px;border-left:4px solid #1AAD19;color:#3f3f3f;font-size:16px;font-weight:bold;width:175px;'>
+                  推荐膳食总能量(每日)
+                </view>
+              </view>
+              <view class="weui-flex__item">
+                <view style='padding: 0 10px;color:#1AAD19;font-size:16px;font-weight:bold;'>
+                  {{totalEnergies}}
+                  <text style='padding-left:5px;'>kacl</text>
+                </view>
+              </view>
+            </view>
+
+            <view class="weui-flex" style='margin-top:10px;'>
+              <view class="weui-flex__item">
+                <view style='padding-left: 10px;border-left:4px solid #1AAD19;color:#3f3f3f;font-size:16px;font-weight:bold;width:175px;'>
+                  推荐膳食总蛋白(每日)
+                </view>
+              </view>
+              <view class="weui-flex__item">
+                <view style='padding: 0 10px;color:#1AAD19;font-size:16px;font-weight:bold;'>
+                  {{totalProteins}}
+                  <text style='padding-left:5px;'>g</text>
+                </view>
+              </view>
+            </view>
+          </view>
+
+          <view class="weui-panel__hd">
+            <view style='padding-left:10px;border-left:4px solid #1AAD19;color:#3f3f3f;font-size:16px;font-weight:bold;'>
+              建议
+            </view>
+          </view>
+          <view class="weui-panel__bd">
+            <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd weui-cell__hd2">
+                  <view style='width:100%;padding-right:5px;font-size:14px;'>无</view>
+                </view>
+              </view>
+            </view>
+          </view>
+
+          <view class="weui-panel__hd">
+            <view style='padding-left:10px;border-left:4px solid #1AAD19;color:#3f3f3f;font-size:16px;font-weight:bold;'>
+              营养推荐
+            </view>
+          </view>
+          <view class="weui-panel__bd">
+            <view class="weui-cells weui-cells_after-title cofBg">
+              <view class="weui-cell weui-cell_input weui-flex">
+                <view class="weui-flex__item weui-cell__hd weui-cell__hd2">
+                  <view style='font-weight:bold;' class="weui-label">牛奶</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{standard.milk}}ml</text>
+                </view>
+
+                <view class="weui-flex__item weui-cell__hd weui-cell__hd2">
+                  <view style='font-weight:bold;' class="weui-label">鸡蛋</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{standard.egg}}个</text>
+                </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input weui-flex">
+                <view class="weui-flex__item weui-cell__hd weui-cell__hd2">
+                  <view style='font-weight:bold;' class="weui-label">瘦肉</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{standard.lean}}g</text>
+                </view>
+
+                <view class="weui-flex__item weui-cell__hd weui-cell__hd2">
+                  <view style='font-weight:bold;' class="weui-label">豆腐</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{standard.tofu}}g</text>
+                </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input weui-flex">
+                <view class="weui-flex__item weui-cell__hd weui-cell__hd2">
+                  <view style='font-weight:bold;' class="weui-label">叶类蔬菜</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{standard.leafyVegetable}}g</text>
+                </view>
+                <view class="weui-flex__item weui-cell__hd weui-cell__hd2">
+                  <view style='font-weight:bold;' class="weui-label">菌藻类(干)</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{standard.homonemeae}}g</text>
+                </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input weui-flex">
+                <view class="weui-flex__item weui-cell__hd weui-cell__hd2">
+                  <view style='font-weight:bold;' class="weui-label">瓜茄类蔬菜</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{standard.melon}}g</text>
+                </view>
+
+                <view class="weui-flex__item weui-cell__hd weui-cell__hd2">
+                  <view style='font-weight:bold;' class="weui-label">水果</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{standard.fruit}}g</text>
+                </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input weui-flex">
+                <view class="weui-flex__item weui-cell__hd weui-cell__hd2">
+                  <view style='font-weight:bold;' class="weui-label">米/面</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{standard.rice}}g</text>
+                </view>
+                <view class="weui-flex__item weui-cell__hd weui-cell__hd2">
+                  <view style='font-weight:bold;' class="weui-label">薯类</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{standard.tuber}}g</text>
+                </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input weui-flex">
+                <view class="weui-flex__item weui-cell__hd weui-cell__hd2">
+                  <view style='font-weight:bold;' class="weui-label">淀粉类</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{standard.amyloid}}g</text>
+                </view>
+                <view class="weui-flex__item weui-cell__hd weui-cell__hd2">
+                  <view style='font-weight:bold;' class="weui-label">油</view>
+                </view>
+                <view class="weui-flex__item weui-cell__bd">
+                  <text style='color:#999;padding-right: 5px;'>{{standard.oil}}g</text>
+                </view>
+              </view>
+
+            </view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+
+    <view wx:if='{{!usrIdx}}' style='width:94%;margin:15px 3%;'>
+      <button class="weui-btn" type="primary" bindtap="nextStep">食谱推荐</button>
+    </view>
+  </view>
+</view>

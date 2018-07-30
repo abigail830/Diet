@@ -1,0 +1,36 @@
+<!--pages/feedback/feedback.wxml-->
+<view class='bodyBg'>
+  <view>
+    <view class="page">
+      <view class="page__bd">
+        <view class="weui-panel weui-panel_access">
+          <view class="weui-panel__hd weui-flex">
+            <view class='weui-flex__item' style='padding-left:10px;border-left:4px solid #1AAD19;color:#3f3f3f;font-size:16px;font-weight:bold;'>
+              反馈记录
+            </view>
+            <view>
+              <button open-type='contact' style='font-size:16px;height:28px;line-height:28px;' class="weui-btn" type="primary" bindtap="nextStep">客服</button>
+            </view>
+          </view>
+          <view class="weui-panel__bd">
+            <scroll-view scroll-y style="max-height: 26rem;" class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input" wx:for='{{feedbacks}}' wx:key='id' data-value='{{item}}' bindtap='feedBackDetail'>
+                <view class="weui-cell__bd weui-flex">
+                  <view class='weui-flex__item'>{{item.mealDesc}}</view>
+                  <view class='weui-flex__item'>{{item.mealDate}}</view>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+              </view>
+            </scroll-view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+    <view style='position:fixed;bottom:0;width:100%;background-color: #fff;'>
+      <view style='text-align:center;'>
+        <image src='../../images/icon/plus_circle.png' style='width:48px;height:48px;' bindtap='addFeedBack'></image>
+      </view>
+    </view>
+  </view>
+</view>

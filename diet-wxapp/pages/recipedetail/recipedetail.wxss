@@ -1,0 +1,87 @@
+/* pages/recipedetail/recipedetail.wxss */
+page {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+}
+.page{
+  margin: 0;
+}
+.page__hd{
+  padding: 5px 0 0 0;
+}
+.page__bd{
+  padding: 5px 0;
+}
+.bodyBg{
+  width: 100%;
+  padding:0;
+}
+.weui-panel{
+  border: none;
+   /* position:relative;  */
+}
+.weui-panel:before,.weui-panel:after {
+  border: none;
+}
+.weui-cells{
+  font-size:16px;
+  position: static;
+}
+.weui-cells:before,.weui-cells:after{
+  border: none;
+}
+label.weui-cell{
+  padding:0;
+}
+.weui-cell:active {
+  background-color: #fff;
+}
+.weui-cell{
+  padding-top:5px;
+  padding-bottom:5px;
+  position: inherit
+}
+.weui-panel__hd:after {
+   border:none; 
+}
+.weui-panel__bd {
+  padding: 0;
+  /* border-bottom: 1rpx solid #d9d9d9; */
+}
+.weui-badge {
+  display: inline-block;
+  padding: 0.15em 0.4em;
+  min-width: 8px;
+  border-radius: 5px;
+  background-color: #1AAD19;
+  color: #fff;
+  line-height: 1.2;
+  text-align: center;
+  font-size: 16px;
+  vertical-align: middle;
+}
+.weui-select{
+  text-align:left;
+  border: 1rpx solid #d9d9d9;
+  padding:0;
+}
+.weui-select:before{
+   -webkit-transform:matrix(.71,.71,.71,-.71,0,0); 
+  transform:matrix(.71,.71,.71,-.71,0,0);
+}
+.weui-cell__bd{
+  padding:5px 0;
+}
+.weui-cell-autoH.weui-cell__bd{
+  padding:0;
+}
+.txtEllipsis{
+  max-width:97px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.container{
+  margin: 5px 0;
+}

@@ -1,0 +1,65 @@
+<!--index.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-search-bar" style='border:none;'>
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="18"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="食物营养成分查询" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="searchCofs" style='height:35px;line-height:35px;font-size:17px;' placeholder-style='padding-top:1px;'/>
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="18" style='margin-top:1px;'></icon>
+          </view>
+        </view>
+        <label style='line-height:35px;' class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="18" style='margin-top:5px;'></icon>
+          <view style='font-size:17px;' class="weui-search-bar__text">食物营养成分查询</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" style='line-height:35px;' bindtap="hideInput">取消</view>
+    </view>
+    <scroll-view scroll-y class="weui-cells searchbar-result" style='position:fixed;margin-top:-1px;max-height: 29rem;min-height: 2rem;width:95%;margin:0 10px;z-index:9999;' wx:if="{{inputVal.length > 0}}">
+      <view wx:for='{{cofInfos}}' wx:key='id' wx:for-index="idx" data-value="{{idx}}" class="weui-cell" wx:if='{{cofInfos.length > 0}}' hover-class="weui-cell_active" bindtap='showCofInfo'>
+        <view class="weui-cell__bd">
+          <view>{{item.name}}</view>
+        </view>
+      </view>
+      <view class="weui-cell" wx:if='{{cofInfos.length <= 0}}'>
+        <view class="weui-cell__bd">
+          <view style='text-align:center;color:#999;'>无法找到食材</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="page__bd">
+    <view style='padding:0 10px 8px 10px'>
+      <view class='weui-flex'>
+        <button open-type='getUserInfo' bindgetuserinfo="jumpPage" data-value='/pages/nutritionsugg/nutritionsugg' class='weui-flex__item page-item' style='background: url({{baseUrl}}/index/m-01.png)'>
+          <view class='main-page-font'>营养建议</view>
+        </button>
+        <button open-type='getUserInfo' bindgetuserinfo="jumpPage" data-value='/pages/baseinfo/baseinfo' class='weui-flex__item page-item light' style='background: url({{baseUrl}}/index/m-02.png)'>
+          <view class='main-page-font'>基础数据</view>
+        </button>
+      </view>
+      <view class='weui-flex'>
+        <button open-type='getUserInfo' bindgetuserinfo="jumpPage" data-value='/pages/feedback/feedback' class='weui-flex__item page-item light' style='background: url({{baseUrl}}/index/m-03.png)'>
+          <view class='main-page-font' style='line-height:38px;margin-top:160px;'>评估反馈</view>
+        </button>
+        <button open-type='getUserInfo' bindgetuserinfo="jumpPage" data-value='/pages/nutritionknlg/nutritionknlg'  class='weui-flex__item page-item' style='background: url({{baseUrl}}/index/m-04.png)'>
+          <view class='main-page-font' style='line-height:38px;margin-top:160px;'>营养知识</view>
+        </button>
+      </view>
+
+      <button open-type='getUserInfo' bindgetuserinfo="jumpPage" data-value='/pages/dailyrecipe/dailyrecipe?isFromIdx=1' class='main-page' style='background: url({{baseUrl}}/index/recomd.png) center center'>
+        <view>
+          <view class='main-page-font'>
+            今日菜
+          </view>
+          <view class='main-page-font'>
+            谱推荐
+          </view>
+        </view>
+      </button>
+    </view>
+  </view>
+</view>

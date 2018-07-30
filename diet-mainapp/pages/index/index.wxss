@@ -1,0 +1,37 @@
+/**index.wxss**/
+page{
+  background-color:#efeff4;
+}
+.page-item {
+  height:210px;
+  color: #333;
+  text-align: left;
+  background: #2d8cf0;
+  font-size: 18px;
+  padding: 5px;
+  border-radius:0;
+}
+.main-page{
+  height: 120px;
+  width: 120px;
+  background: #1AAD19;
+  position: absolute;
+  top: 205px;
+  left: 32.5%;
+  border-radius: 60px;
+  font-size: 18px;
+  text-align: center;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-page-font{
+  color: #fff;
+  font-size:24px;
+  font-weight: bold;
+  text-align: center;
+}
+.page-item.light {
+  background: #5cadff;
+}

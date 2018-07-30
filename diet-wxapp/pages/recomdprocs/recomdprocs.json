@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {},
+  "navigationBarTitleText": "健康信息",
+  "navigationBarBackgroundColor": "#1AAD19",
+  "navigationBarTextStyle": "white",
+  "backgroundTextStyle": "light"
+}

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.diet.admin.dao.RecipeInfoMapper">
+    <resultMap id="BaseResultMap" type="com.diet.admin.entity.RecipeInfo">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="technique" jdbcType="INTEGER" property="technique"/>
+        <result column="taste" jdbcType="VARCHAR" property="taste"/>
+        <result column="cofIds" jdbcType="VARCHAR" property="cofIds"/>
+        <result column="workWay" jdbcType="VARCHAR" property="workWay"/>
+        <result column="prepTime" jdbcType="VARCHAR" property="prepTime"/>
+        <result column="cookTime" jdbcType="VARCHAR" property="cookTime"/>
+        <result column="cookDiff" jdbcType="VARCHAR" property="cookDiff"/>
+        <result column="cookProvs" jdbcType="VARCHAR" property="cookProvs"/>
+        <result column="mainIngr" jdbcType="VARCHAR" property="mainIngr"/>
+        <result column="assiIngr" jdbcType="VARCHAR" property="assiIngr"/>
+        <result column="mealTime" jdbcType="VARCHAR" property="mealTime"/>
+        <result column="nutritionTags" jdbcType="VARCHAR" property="nutritionTags"/>
+        <result column="totalEnergies" jdbcType="REAL" property="totalEnergies"/>
+        <result column="totalProteins" jdbcType="REAL" property="totalProteins"/>
+        <result column="bloodFat" jdbcType="INTEGER" property="bloodFat"/>
+        <result column="bloodSugar" jdbcType="INTEGER" property="bloodSugar"/>
+        <result column="bloodPress" jdbcType="INTEGER" property="bloodPress"/>
+        <result column="uricAcid" jdbcType="INTEGER" property="uricAcid"/>
+        <result column="kidney" jdbcType="INTEGER" property="kidney"/>
+        <result column="imgPath" jdbcType="VARCHAR" property="imgPath"/>
+        <result column="createTime" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="updateTime" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+
+    <select id="getRecipeByCofType" resultMap="BaseResultMap">
+    select a.* from tb_recipe_info a, tb_cof_info b where a.cofIds like CONCAT(CONCAT('%|', b.id), '|%')
+        <if test="cofInfoType != null and cofInfoType != ''">
+            and b.type = #{cofInfoType}
+        </if>
+        <if test="bloodFat != null and bloodFat != ''">
+            and b.bloodFat = #{bloodFat}
+        </if>
+        <if test="bloodSugar != null and bloodSugar != ''">
+            and b.bloodSugar = #{bloodSugar}
+        </if>
+        <if test="bloodPress != null and bloodPress != ''">
+            and b.bloodPress = #{bloodPress}
+        </if>
+        <if test="uricAcid != null and uricAcid != ''">
+            and b.uricAcid = #{uricAcid}
+        </if>
+        <if test="kidney != null and kidney != ''">
+            and b.kidney = #{kidney}
+        </if>
+        <if test="maxEng != null and maxEng != ''">
+            and #{maxEng} > a.totalEnergies
+        </if>
+        <if test="nutritionTags != null and nutritionTags != ''">
+            and a.nutritionTags like #{nutritionTags}
+        </if>
+        <if test="mealTime != null and mealTime != ''">
+            and a.mealTime like #{mealTime}
+        </if>
+        <if test="ids != null and ids.size() !=0">
+            AND a.id not in
+            <foreach item="item" index="index" collection="ids"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+  </select>
+</mapper>

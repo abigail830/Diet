@@ -1,0 +1,54 @@
+<!--pages/recipedetail/recipedetail.wxml-->
+<view class='bodyBg'>
+  <view class="page">
+    <view class="page__bd" style='padding:5px 5px;'>
+
+      <swiper indicator-active-color="#1AAD19" indicator-dots='true' circular='true' current='{{currMealTime}}' bindchange='currentChg' style='min-height:32.5rem;'>
+        <swiper-item wx:for='{{memberRecipes}}' wx:key='id' wx:for-item='memberRecipe'>
+          <view class="weui-panel">
+            <view class="weui-panel__bd">
+              <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__hd" style='width:100%;max-height: 28rem;overflow-y:auto;'>
+                    <view style='text-align:center;font-size:24px;'>{{memberRecipe.mealName}}</view>
+                    <view class="container">
+                      <swiper indicator-active-color="#1AAD19" indicator-dots='true' autoplay='true' circular='true' style='height:180px; text-align:center;'>
+                        <swiper-item style='text-align:center;' wx:for='{{memberRecipe.recipeInfos}}' wx:key='id' wx:for-item='recipeInfo'>
+                          <image style='width:320px;height:180px;' src='{{baseUrl + recipeInfo.imgPath}}'></image>
+                        </swiper-item>
+                      </swiper>
+                    </view>
+
+                    <view class="container" wx:for='{{memberRecipe.recipeInfos}}' wx:key='id' wx:for-item='recipeInfo'>
+                      <view class="weui-flex" style='border: 1rpx solid #d9d9d9;padding:5px;'>
+                        <view style='width: 120px;height:70px;margin-top:5px;'>
+                          <image src='{{baseUrl + recipeInfo.imgPath}}' style='max-width:120px;max-height:70px;'></image>
+                        </view>
+                        <view style='width: auto;margin: 5px 5px 0 10px;' class="weui-flex__item">
+                          <view>{{recipeInfo.name}}</view>
+                        </view>
+                        <view style='width: 30px;text-align:center;margin-top: 5px;'>
+                          <image src='/images/icon/refresh.png' style='width:28px;height:28px' data-value='{{recipeInfo.id}}' bindtap='refreshRecipe'></image>
+                          <icon class="weui-icon-checkbox_circle" type="cancel" size="24" style='margin-top:5px;' data-value='{{recipeInfo.id}}' bindtap='removeRecipe'></icon>
+                        </view>
+                      </view>
+                    </view>
+
+                    <view class="container" style='position:fixed;bottom:10px;left:43.5%;'>
+                      <view style='text-align:center;'>
+                        <picker bindchange="recipePick" range-key='name' range="{{recipeArr}}">
+                          <image src='../../images/icon/plus_circle.png' style='width:48px;height:48px;'></image>
+                        </picker>
+                      </view>
+                    </view>
+
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+</view>

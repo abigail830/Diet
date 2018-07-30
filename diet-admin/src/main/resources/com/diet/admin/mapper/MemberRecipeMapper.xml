@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.diet.admin.dao.MemberRecipeMapper">
+  <resultMap id="BaseResultMap" type="com.diet.admin.entity.MemberRecipe">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="batchId" jdbcType="BIGINT" property="batchId" />
+    <result column="mealName" jdbcType="VARCHAR" property="mealName" />
+    <result column="mealTime" jdbcType="INTEGER" property="mealTime" />
+    <result column="totalEnergy" jdbcType="REAL" property="totalEnergy" />
+    <result column="memberId" jdbcType="INTEGER" property="memberId" />
+    <result column="recipeIds" jdbcType="VARCHAR" property="recipeIds" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+</mapper>
